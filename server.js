@@ -1,22 +1,30 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const io = require('socket.io')();
+const Pusher = require('pusher');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Setup Pusher
+const pusher = new Pusher({
+  appId: '309787',
+  key: '5a3e0612577fdbe1d797',
+  secret: '3d0a3bf7dfa670293c02',
+  encrypted: true
+});
+
 // Setup the API
 app.get('/', (req, res) => {
   res.send('Server up and running');
 });
 
-// Socket
-io.on('connection', client => {
-  console.log('Client connected');
-});
+app.get('/ping', (req, res) => {
+  pusher.trigger('machine', 'pong', {});
+  res.send();
+})
 
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log('Server is up and running');
 });
