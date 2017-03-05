@@ -36,13 +36,13 @@ export default class Counter extends Component{
         return(
             <div className="counter">
                 {/*<ButtonToolbar>*/}
-                    <div className="left">
-                    <button onClick = {() => {this.decrement()}}>-</button>
-                    </div>
-                        <div>count:{this.state.count}</div>
-                        <div className="right">
-                    <button onClick = {() => {this.increment()}}>+</button>
-                    </div>
+                    <Button 
+                        className="counter-left"
+                        onClick = {() => {this.decrement()}}>
+                        -
+                    </Button>
+                    <div className="counter-title">{this.state.count}</div>
+                    <Button className="counter-right" onClick = {() => {this.increment()}}>+</Button>
                 {/*</ButtonToolbar>*/}
             </div>
         )

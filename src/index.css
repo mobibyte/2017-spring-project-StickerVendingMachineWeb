@@ -1,5 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
+  padding-bottom: 40px;
+}
+
+.product-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.product-content {
+  margin-left: 15px;
+}
+
+.product-title {
+  font-size: 22px;
+}
+
+.counter {
+
+}
+
+.counter-left, .counter-right {
+  //background: #FF00FF;
+}
+
+.counter-title {
+  font-size: 22px;
+  padding: 0 10px;
+}
+
+.checkout-bar {
+  display: flex;
+  position: fixed;
+  background: rgba(18, 221, 96, 0.8);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 24px;
+}
+
+.checkout-title {
+  font-weight: 300;
+}
+
+.checkout-price {
+  font-weight: bold;
 }
