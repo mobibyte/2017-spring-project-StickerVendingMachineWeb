@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Button, ButtonToolbar, ControlLabel, ButtonGroup,Modal} from "react-bootstrap"
 import Product from "../components/Product"
 
 import StripeCheckout from 'react-stripe-checkout';
@@ -58,10 +57,6 @@ class Home extends Component {
 
     return (
         <div className="container">
-          <StripeCheckout
-        token={this.onToken}
-        stripeKey="my_PUBLISHABLE_stripekey"
-      />
           <h1 className="text-center">Sticker Shop</h1>
           <p className="text-center">Welcome to the sticker shop! Everything is $1</p>
           <hr />
@@ -70,14 +65,19 @@ class Home extends Component {
             <Product key={index} product={item} onItemUpdate={this._onItemUpdate} index={index} />
           ))}
 
-          <div className={"checkout-bar" + (count > 0 ? " active" : "")}>
-            <div className="checkout-title">
-              Checkout
+          <StripeCheckout
+            token={this._onToken}
+            stripeKey="pk_test_azlP8McRKIc5gfU8Ht8wPD9G"
+          >
+            <div className={"checkout-bar" + (count > 0 ? " active" : "")}>
+              <div className="checkout-title">
+                Checkout
+              </div>
+              <div className="checkout-price">
+                ${count}
+              </div>
             </div>
-            <div className="checkout-price">
-              ${count}
-            </div>
-          </div>
+          </StripeCheckout>
         </div>
       );
    }

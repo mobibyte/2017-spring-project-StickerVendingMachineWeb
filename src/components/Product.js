@@ -20,7 +20,7 @@ const Product = ({ product, onItemUpdate, index }) => {
     return (
         <div className="product-item">
             <div className="product-image">
-                <img src={imageUrl} />
+                <img src={imageUrl} alt={title} />
             </div>
 
             <div className="product-content">

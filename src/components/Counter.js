@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {Button, ButtonToolbar} from "react-bootstrap"
+import {Button} from "react-bootstrap"
 
 import '../styles/Counter.css'
 
