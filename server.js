@@ -23,6 +23,11 @@ app.get('/', (req, res) => {
 app.get('/ping', (req, res) => {
   pusher.trigger('machine', 'pong', {});
   res.send();
+});
+
+app.get('/lol', (req, res) => {
+  pusher.trigger('machine', 'text', req.query.text);
+  res.send();
 })
 
 app.listen(8080, () => {
