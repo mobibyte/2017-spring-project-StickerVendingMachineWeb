@@ -6,7 +6,6 @@ import '../styles/Button.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Home extends Component {
-
   
   render() {
    
