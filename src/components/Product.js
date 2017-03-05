@@ -2,16 +2,30 @@ import React from 'react';
 
 import Counter from './Counter';
 
-const Product = () => {
+const Product = ({ product, onItemUpdate, index }) => {
+
+    const { title, imageUrl, count } = product;
+
+    const _onAdd = () => {
+        product.count++;
+        onItemUpdate(product, index);
+    }
+
+    const _onRemove = () => {
+        if(product.count < 1) return;
+        product.count--;
+        onItemUpdate(product, index);
+    }
+
     return (
         <div className="product-item">
             <div className="product-image">
-                <img src="http://placehold.it/150x150" alt=""/>
+                <img src={imageUrl} />
             </div>
 
             <div className="product-content">
-                <div className="product-title">Product</div>
-                <Counter/>
+                <div className="product-title">{title}</div>
+                <Counter onAdd={_onAdd} onRemove={_onRemove} count={count} />
             </div>
         </div>
     );

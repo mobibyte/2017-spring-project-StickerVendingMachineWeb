@@ -20,8 +20,13 @@ body {
   font-size: 22px;
 }
 
-.counter {
+.product-image img {
+  transform: rotate(90deg);
+  max-width: 100px;
+  height: 100px;
+}
 
+.counter {
 }
 
 .counter-left, .counter-right {
