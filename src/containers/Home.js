@@ -31,13 +31,24 @@ class Home extends Component {
     }
   }
 
+  _getTotalCount = () => {
+    let count = 0;
+    for(let item of this.state.products) {
+      count += item.count;
+    }
+    
+    return count;
+  }
+
   _onItemUpdate = (item, index) => {
     this.state.products[index] = item;
     this.forceUpdate();
+    this._getTotalCount();
   }
 
   render() {
     const { products } = this.state;
+    const count = this._getTotalCount();
 
     return (
         <div className="container">
@@ -49,12 +60,12 @@ class Home extends Component {
             <Product key={index} product={item} onItemUpdate={this._onItemUpdate} index={index} />
           ))}
 
-          <div className="checkout-bar">
+          <div className={"checkout-bar" + (count > 0 ? " active" : "")}>
             <div className="checkout-title">
               Checkout
             </div>
             <div className="checkout-price">
-              $10
+              ${count}
             </div>
           </div>
         </div>

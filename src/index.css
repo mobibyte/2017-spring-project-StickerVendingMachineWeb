@@ -42,13 +42,18 @@ body {
   display: flex;
   position: fixed;
   background: rgba(18, 221, 96, 0.8);
-  bottom: 0;
+  bottom: -55px;
   left: 0;
   right: 0;
   justify-content: space-between;
   color: #fff;
   padding: 10px 15px;
   font-size: 24px;
+  transition: bottom linear 0.05s;
+}
+
+.checkout-bar.active {
+  bottom: 0;
 }
 
 .checkout-title {
