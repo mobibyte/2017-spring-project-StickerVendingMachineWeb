@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Button, ButtonToolbar, ControlLabel, ButtonGroup,Modal} from "react-bootstrap"
 import Product from "../components/Product"
 
+import StripeCheckout from 'react-stripe-checkout';
+
 import '../styles/Button.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -46,12 +48,20 @@ class Home extends Component {
     this._getTotalCount();
   }
 
+  _onToken = (token) => {
+    console.log('WERE IN BUSInESS BUT I DONT HAV AN API YET SRR', token)
+  }
+
   render() {
     const { products } = this.state;
     const count = this._getTotalCount();
 
     return (
         <div className="container">
+          <StripeCheckout
+        token={this.onToken}
+        stripeKey="my_PUBLISHABLE_stripekey"
+      />
           <h1 className="text-center">Sticker Shop</h1>
           <p className="text-center">Welcome to the sticker shop! Everything is $1</p>
           <hr />
