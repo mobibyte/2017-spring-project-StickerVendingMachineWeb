@@ -31,6 +31,7 @@ class Home extends Component {
       ]
     }
   }
+  
 
   _getTotalCount = () => {
     let count = 0;
@@ -49,6 +50,7 @@ class Home extends Component {
 
   _onToken = (token) => {
     console.log('WERE IN BUSInESS BUT I DONT HAV AN API YET SRR', token)
+    this.context.router.push(`/order/${token.id}`);
   }
 
   render() {
@@ -82,5 +84,9 @@ class Home extends Component {
       );
    }
 }
+
+Home.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default Home;
