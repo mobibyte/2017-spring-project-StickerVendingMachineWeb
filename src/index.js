@@ -5,6 +5,7 @@ import { Router, Route, browserHistory } from 'react-router';
 import Home from './containers/Home';
 import TrackOrder from './containers/TrackOrder';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
